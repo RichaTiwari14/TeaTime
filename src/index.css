@@ -15,7 +15,7 @@ code {
 
 .product{
   width: 100%;
-  height: 1000px;
+  height: auto;
   padding-top: 68px;
 }
 .product_title{
@@ -74,6 +74,9 @@ code {
   font-size: 14px;
   color: #555;
   margin-top: 5px;
+}
+.product-list{
+  height: auto;
 }
 .product-card {
   display: flex;
@@ -160,7 +163,7 @@ a{
   display: flex;
   max-width: 90%;
   border-radius: 10px;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   padding-top: 30px;
   padding-left: 100px;
@@ -227,35 +230,34 @@ a{
 }
 
 .product-buttons {
-  display: flex;
-  gap: 10px;
+  position: relative;
 }
 
 .product-buttons button {
-  flex: 1;
-  padding: 10px;
   font-size: 1em;
   border: none;
   cursor: pointer;
 }
 .add-to-cart-button{
-  width: 200px;
+  width: 48%;
   height: 45px;
   font-size: 1.3rem;
   background:rgb(251, 161, 27) ;
   color: rgb(247, 246, 246);
 }
-.add-to-cart:hover{
+.add-to-cart-button:hover{
   background: rgb(255, 153, 0);
 }
 .buy-now-button{
+  position: absolute;
+  left: 52%;
+  width: 48%;
   color: rgb(244, 242, 242);
-  width: 400px;
   height: 45px;
   font-size: 1.3rem;
   background:rgb(251, 161, 27) ;
 }
-.buy-now:hover{
+.buy-now-button:hover{
   background: rgb(255, 153, 0);
 }
 .description-slider{
@@ -423,7 +425,8 @@ a{
 .buy-now{
   background-color: rgb(247, 245, 245);
   width: 100%;
-  height: 650px;
+  height: auto;
+  border-bottom: 10px solid rgb(247, 245, 245);;
   padding-top: 60px;
   position: absolute;
 }
@@ -475,8 +478,8 @@ a{
   max-width: 250px;
   height: 260px;
   position: absolute;
-  top: 60px;
-  left: 480px;
+  top: 20%;
+  left: 60%;
   border: 1px solid grey;
 }
 
@@ -492,7 +495,12 @@ h2 {
   display: flex;
   gap: 15px;
 }
-
+.shippingOptionsdiv{
+  padding-left: 30px;
+  display: flex;
+  width: 800px;
+  height: 200px;
+}
 .quantity-selector button {
   padding: 4px 8px;
   background-color: #ddd;
@@ -524,7 +532,6 @@ h2 {
   width: 90%;
   height: 40px;
   padding-left: 30px;
-  padding-top: 50px;
   position: relative;
   justify-content: space-evenly;
 }
@@ -537,7 +544,8 @@ h2 {
   height: 50px;
   border: none;
 }
-.backButtons:hover{
+
+.backButton:hover{
   background-color: #28a745;
 }
 .proceedbutton{
@@ -552,43 +560,98 @@ h2 {
 .proceedButtons:hover{
   background-color: #28a745;
 }
-input[type="radio"] {
-  margin-right: 8px;
+
+/* Payment Method Section */
+
+.payment-methods button {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #2d9c84;
+  background-color: #f9f9f9;
+  color: #2d9c84;
 }
-.pay-option-input{
-  font-size: 1.2rem;
+
+.payment-methods button:hover {
+  background-color: #e0f7ef;
+}
+
+.payment-form-container {
+  width: 60%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: #2d9c84;
+}
+
+h2 {
+  text-align: center;
+  height: 80px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.payment-methods button {
+  border: none;
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.payment-methods button.selected {
+  border-bottom: 2px solid #2d9c84;
+}
+.form-buttons{
+  width: 55%;
+  height: 10%;
   padding: 50px;
 }
-.payment-options-given{
-  padding-top: 50px;
-  height: 100px;
+.back-button{
+  border: none;
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
 }
-.payment-options:hover{
-  background-color:rgb(244, 249, 243) ;
-}
-.payment-options-button{
- position: relative;
- width: 100%;
- height: 50px;
-}
-.payment-backbutton{
+.proceed-button{
   position:absolute;
-  left: 150px;
+  left: 40%;
   font-size: 1rem ;
   background-color: #45a049;
-  width: 200px;
-  height: 50px;
+  width: 15%;
+  height:4%;
   border: none;
 }
-.place-order-button{
-  position:absolute;
-  left: 550px;
-  font-size: 1rem ;
-  background-color: #45a049;
-  width: 200px;
-  height: 50px;
-  border: none;
+form {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .confirmation{
   text-align: center;
   padding: 70px;
@@ -599,6 +662,10 @@ input[type="radio"] {
 .confirmation p {
   font-size: 1.1rem;
   color: #555;
+}
+.Recommended-side-bar{
+  width: 20%;
+  height: auto;
 }
 .reviewfill{
   padding-top: 50px;
@@ -620,7 +687,7 @@ input[type="radio"] {
 }
 
 .rate{
-  width: 40%;
+  width: 50%;
   height: 290px; 
   padding-left: 550px;
 

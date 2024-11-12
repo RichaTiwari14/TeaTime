@@ -11,7 +11,8 @@ const ShippingOptions = ({ onNext, onBack }) => {
     return (
         <div className="shipping-options">
             <h2>Select Shipping Option</h2>
-            <div>
+            <div className='shippingOptionsdiv'>
+                <div>
                 <label>
                     <input
                         type="radio"
@@ -21,6 +22,8 @@ const ShippingOptions = ({ onNext, onBack }) => {
                     />
                     Standard Shipping (Free)
                 </label>
+                </div>
+                <div>
                 <label>
                     <input
                         type="radio"
@@ -30,6 +33,7 @@ const ShippingOptions = ({ onNext, onBack }) => {
                     />
                     Express Shipping (₹50)
                 </label>
+                </div>
             </div>
             <div className='shippingButtons'>
             <button className='backbutton' onClick={onBack}>Back</button>

@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 
 const ProductReview = ({ product, onNext }) => {
-    const [quantity, setQuantity] = useState(product.quantity);
+    const [quantity, setQuantity] = useState(1);
 
-    const handleQuantityChange = (newQuantity) => {
-        if (newQuantity >= 1) setQuantity(newQuantity);
+    const handleQuantityChange = (change) => {
+      setQuantity((prev) => Math.max(1, prev + change));
     };
 
     const handleNext = () => {
@@ -19,9 +19,9 @@ const ProductReview = ({ product, onNext }) => {
                 <p>{product.title}</p>
                 <p>Size: {product.size}</p>
                 <div className="quantity-selector">
-                    <button onClick={() => handleQuantityChange(quantity - 1)}>-</button>
+                    <button onClick={() => handleQuantityChange( - 1)}>-</button>
                     <span>{quantity}</span>
-                    <button onClick={() => handleQuantityChange(quantity + 1)}>+</button>
+                    <button onClick={() => handleQuantityChange( + 1)}>+</button>
                 </div>
                 <p>Price: ₹{product.price * quantity}</p>
             </div>

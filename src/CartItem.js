@@ -2,13 +2,11 @@
 import React, { useState } from 'react';
 
 const CartItem = ({ item }) => {
-    const [quantity, setQuantity] = useState(item.quantity);
+    const [quantity, setQuantity] = useState(1);
 
-    const handleQuantityChange = (newQuantity) => {
-        if (newQuantity >= 1) {
-            setQuantity(newQuantity);
-        }
-    };
+  const handleQuantityChange = (change) => {
+    setQuantity((prev) => Math.max(1, prev + change));
+  };
 
     return (
         <div className="cart-item">
@@ -17,9 +15,9 @@ const CartItem = ({ item }) => {
                 <p className="item-name">{item.title}</p>
                 <p className="item-size">Size: {item.size}</p>
                 <div className="item-quantity">
-                    <button onClick={() => handleQuantityChange(quantity - 1)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => handleQuantityChange(quantity + 1)}>+</button>
+                    <button onClick={() => handleQuantityChange(-1)}>-</button>
+                    <span>{quantity}</span>
+                    <button onClick={() => handleQuantityChange(+ 1)}>+</button>
                 </div>
                 <p className="item-price">₹ {item.price * quantity}</p>
             </div>

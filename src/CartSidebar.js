@@ -1,10 +1,11 @@
 // src/components/CartSidebar.js
-import React from 'react';
+import React, {useState} from 'react';
 import CartItem from './CartItem';
 import RecommendedProducts from './RecommendedProducts';
 import CheckoutSection from './CheckoutSection';
-import { useParams } from 'react-router-dom';
-
+import { useParams} from 'react-router-dom';
+import { Drawer } from 'antd';
+import RecommendationProductList from './RecommendationProductList';
 // Define cart items
 const productcard = [
     {
@@ -252,6 +253,16 @@ const productcard = [
     }
   ];
 function CartSidebar() {
+  const [visible, setVisible] = useState(false);
+
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
     const { id } = useParams();
     
     // Retrieve the item based on the ID from URL parameters
@@ -263,7 +274,7 @@ function CartSidebar() {
     }
 
     // Calculate the subtotal for the single item or default to 1 if quantity is not specified
-    const subtotal = item.price * (item.quantity || 1);
+    const subtotal = item.price * (item.quantity);
 
     return (
         <div className='cart-bg'>
@@ -274,7 +285,17 @@ function CartSidebar() {
                 <CartItem key={item.id} item={item} />
 
                 {/* Render additional components */}
-                <RecommendedProducts />
+                <div className='Recommended-side-bar' onMouseEnter={showDrawer} onMouseLeave={onClose}><RecommendedProducts />
+                <Drawer
+              title="Your Cart"
+              placement="bottom"
+              onClose={onClose}
+              open={visible}
+              height={600} // Adjust the width as needed
+            >
+                <RecommendationProductList />
+                </Drawer>
+                </div>
                 <CheckoutSection subtotal={subtotal} />
             </div>
         </div>

@@ -7,7 +7,7 @@ import IMAGE5 from './masala-tea-8020912_640.webp'
 import IMAGE6 from './coffe.jpg'
 import IMAGE7 from './biscit.jpg'
 import IMAGE8 from './milk.jpg'
-
+import {Link} from 'react-router-dom'
 function home() {
   return (
     <div>
@@ -60,24 +60,26 @@ function home() {
       </div>
       <div id='menu-outer'>
       <h1>MENU</h1>
+      <Link to='/product'>
       <div id='menu-div1'>
         <div id='inner-div1'>
           <img src={IMAGE5}/>
           <h1>TEa</h1>
           </div>
         <div id='inner-div1'>
-        <img src={IMAGE6}/>
-        <h1>CoFFee</h1>
+        <img src={IMAGE8}/>
+        <h1>MiLk</h1>
         </div>
+        <div id='inner-div1'>
+          <img src={IMAGE6}/>
+          <h1>CoFFee</h1>
+          </div>
         <div id='inner-div1'>
           <img src={IMAGE7}/>
           <h1>SnacKs</h1>
           </div>
-        <div id='inner-div1'>
-          <img src={IMAGE8}/>
-          <h1>MiLk</h1>
-          </div>
         </div>
+        </Link>
       </div>
     </div>
   )

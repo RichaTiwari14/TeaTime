@@ -10,6 +10,10 @@ import Home from "./home"
 import Contact from "./ContactSection"
 import About from "./about2"
 import News from "./news"
+import CashOnDelivery from './Cashondelivery';
+import CreditDebitCard from './creditdebitcard';
+import PayPal from './paypal';
+import NetBanking from './netbanking';
 import CartSidebar from './CartSidebar';
 function App() {
   return (
@@ -28,6 +32,10 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/news' element={<News />} />
           <Route path='/cartsidebar/:id' element={<CartSidebar/>}/>
+          <Route path="/credit-debit-card" element={<CreditDebitCard />} />
+                <Route path="/net-banking" element={<NetBanking />} />
+                <Route path="/paypal" element={<PayPal />} />
+                <Route path="/cash-on-delivery" element={<CashOnDelivery />} />
           {/* Fallback route for undefined paths */}
           <Route path="*" element={<div>404 - Page Not Found</div>} />
         </Routes>

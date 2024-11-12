@@ -241,7 +241,7 @@ const Product_card_detail = () => {
     return <p>Product not found.</p>;
   }
   return (
-    <div style={{height:'2400px'}}>
+    <div style={{height:'auto'}}>
       <div key={product.id} className="product-card1">
         <div className="product-image1">
           <img src={product.image} alt="Chaayos Cardamom Tea" />
