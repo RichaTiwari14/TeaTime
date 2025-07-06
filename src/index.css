@@ -841,7 +841,7 @@ justify-content: space-evenly;
   .contactsection_main{
     height: 480px;
     width: 55%;
-    background-image: url(DALL·E\ 2024-11-09\ 19.44.35\ -\ A\ flat-lay\ background\ image\ with\ a\ natural\,\ eco-friendly\ theme.\ The\ composition\ features\ fresh\ green\ herbs\,\ plants\,\ and\ possibly\ a\ tea\ cup\ with\ green\ .webp);
+    background-image: url('./back3.jpg');
     background-size: cover;
    margin-left: 450px;
    position: absolute;
